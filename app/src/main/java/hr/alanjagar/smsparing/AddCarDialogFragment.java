@@ -52,7 +52,7 @@ public class AddCarDialogFragment {
 
                         Car car = new Car();
                         car.setName(name);
-                        car.setPlate(plate);
+                        car.setPlate(plate.toUpperCase());
 
                         dialogResultListener.onAddCar(car);
                     }
