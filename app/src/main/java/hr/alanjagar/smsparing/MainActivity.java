@@ -155,8 +155,8 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
             builder.setNeutralButton("Plati pola sata",  new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    msgToSend = car.getPlate();
-                    numberForSend = zone.getHalfHourPrefix() + zone.getSmsNumber() + zone.getHalfHourSuffix();
+                    msgToSend = zone.getHalfHourPrefix() + car.getPlate() + zone.getHalfHourSuffix();
+                    numberForSend = zone.getSmsNumber();
 
                     sendSMSMessage();
                 }
