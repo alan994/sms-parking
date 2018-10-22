@@ -49,7 +49,7 @@ public class CarAdapter extends ArrayAdapter<Car> {
         tvTitle.setText(car.getName());
 
         TextView tvplate = (TextView) carView.findViewById(R.id.tv_car_item_plate);
-        tvplate.setText(car.getPlate());
+        tvplate.setText(car.getPlate().toUpperCase());
 
         return carView;
     }

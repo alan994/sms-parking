@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         this.carRepository = new SharedPreferencesCarRepository(this);
         this.cityRepository = new JsonCityRepository(this); // new MockCityRepository();
@@ -112,6 +112,11 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
 
     @Override
     public void onZoneClick(Zone zone) {
+        if(ddlCar.getSelectedItem() == null){
+            this.showCarNotSelectedDialog();
+            return;
+        }
+
         City selectedCity = (City) ddlCity.getSelectedItem();
         Car selectedCar = (Car) ddlCar.getSelectedItem();
 
@@ -122,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         String comment = "";
-        if(zone.getComment() != null && zone.getComment() != ""){
+        if(zone.getComment() != null && !zone.getComment().equals("")){
             comment = "(Napomena: " + zone.getComment() + ") ";
         }
 
@@ -150,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
     protected void sendSMSMessage() {
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.SEND_SMS)) {
-
+                Log.i("SMS-Parking", "ActivityCompat.shouldShowRequestPermissionRationale returned true");
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             }
@@ -166,18 +171,31 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
         numberForSend = "";
     }
 
+    private void showCarNotSelectedDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Potrebno je odabrati barem jedan automobil.")
+                .setTitle("Greška")
+                .setPositiveButton("Upravljanje automobilima", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(MainActivity.this, CarActivity.class);
+                        startActivity(i);
+                    }
+                });
+        builder.create().show();
+    }
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @Nullable String permissions[], @Nullable int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_SEND_SMS: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults != null && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     parkingSmsManager.pay(msgToSend, numberForSend);
                     resetDoDefault();
                     Toast.makeText(getApplicationContext(), "Poruka poslana.", Toast.LENGTH_LONG).show();
 
                 } else {
                     Toast.makeText(getApplicationContext(),"Slanje nije uspijelo molimo pokušajte ponovno", Toast.LENGTH_LONG).show();
-                    return;
                 }
             }
         }
