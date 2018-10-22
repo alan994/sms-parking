@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
         builder.setMessage(String.format("Jeste li sigurni da želite platiti parking za vozilo %s registarskih oznaka %s u mjestu %s. Poruka će biti poslana za zonu \"%s\" %sna broj %s.",
                 car.getName(), car.getPlate(), city.getName(), zone.getName(), comment, zone.getSmsNumber()))
                 .setTitle("Pošalji poruku?")
-                .setPositiveButton("Da", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Plati sat vremena", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         msgToSend = car.getPlate();
@@ -149,6 +149,21 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
 
                     }
                 });
+
+        if(zone.isSupportsHalfHour())
+        {
+            builder.setNeutralButton("Plati pola sata",  new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    msgToSend = car.getPlate();
+                    numberForSend = zone.getHalfHourPrefix() + zone.getSmsNumber() + zone.getHalfHourSuffix();
+
+                    sendSMSMessage();
+                }
+            });
+        }
+
+
         builder.create().show();
     }
 

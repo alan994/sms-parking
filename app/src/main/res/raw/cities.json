@@ -5,47 +5,74 @@
       {
         "name": "I. Zona",
         "smsNumber": "700101",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"#30",
+        "halfHourPrefix":"",
+        "supportsHalfHour": true
       },
       {
         "name": "I. Zona*",
         "smsNumber": "700109",
-        "comment": "Vrijedi za Dubravkin put."
+        "comment": "Vrijedi za Dubravkin put.",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "II. 1. Zona",
         "smsNumber": "700102",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "II. 1. Zona**",
         "smsNumber": "700106",
-        "comment": "Vrijedi za Trg Stjepana Radića."
+        "comment": "Vrijedi za Trg Stjepana Radića.",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "II. 3. Zona",
         "smsNumber": "700108",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "III. Zona",
         "smsNumber": "700103",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "IV. 1. Zona",
         "smsNumber": "700105",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "IV. 2. Zona",
         "smsNumber": "700104",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "IV. 2. 'Paromlin'",
         "smsNumber": "700107",
-        "comment": "Vrijedi za Paromlin."
+        "comment": "Vrijedi za Paromlin.",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       }
     ]
   },
@@ -55,17 +82,26 @@
       {
         "name": "I. Zona",
         "smsNumber": "708885",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "II. Zona",
         "smsNumber": "708886",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "III. Zona",
         "smsNumber": "707030",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       }
     ]
   },
@@ -75,12 +111,18 @@
       {
         "name": "I. Zona",
         "smsNumber": "708815",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       },
       {
         "name": "II. Zona",
         "smsNumber": "708816",
-        "comment": ""
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
       }
     ]
   }
