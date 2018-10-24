@@ -19,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
 
     @BindView(R.id.rvZones)
     RecyclerView rvZones;
+
+    @BindView(R.id.tv_activity_main_zone)
+    TextView tvZone;
 
     private CarRepository carRepository;
     private CityRepository cityRepository;
@@ -96,7 +102,14 @@ public class MainActivity extends AppCompatActivity implements ZoneAdapter.OnIte
     }
 
     private void fillCities(){
-        this.ddlCity.setAdapter(new CityAdapter(this, R.layout.city_item, R.id.tv_city_item_name, this.cityRepository.getAllCities()));
+        List<City> cities = this.cityRepository.getAllCities();
+        if(cities.size() == 0){
+            this.tvZone.setVisibility(View.INVISIBLE);
+        }
+        else{
+            this.tvZone.setVisibility(View.VISIBLE);
+        }
+        this.ddlCity.setAdapter(new CityAdapter(this, R.layout.city_item, R.id.tv_city_item_name, cities));
     }
 
     @OnItemSelected(R.id.ddlCity)

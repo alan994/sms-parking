@@ -11,32 +11,8 @@
         "supportsHalfHour": true
       },
       {
-        "name": "I. Zona*",
-        "smsNumber": "700109",
-        "comment": "Vrijedi za Dubravkin put.",
-        "halfHourSuffix":"",
-        "halfHourPrefix":"",
-        "supportsHalfHour": false
-      },
-      {
-        "name": "II. 1. Zona",
+        "name": "II. Zona",
         "smsNumber": "700102",
-        "comment": "",
-        "halfHourSuffix":"",
-        "halfHourPrefix":"",
-        "supportsHalfHour": false
-      },
-      {
-        "name": "II. 1. Zona**",
-        "smsNumber": "700106",
-        "comment": "Vrijedi za Trg Stjepana Radića.",
-        "halfHourSuffix":"",
-        "halfHourPrefix":"",
-        "supportsHalfHour": false
-      },
-      {
-        "name": "II. 3. Zona",
-        "smsNumber": "700108",
         "comment": "",
         "halfHourSuffix":"",
         "halfHourPrefix":"",
@@ -51,15 +27,7 @@
         "supportsHalfHour": false
       },
       {
-        "name": "IV. 1. Zona",
-        "smsNumber": "700105",
-        "comment": "",
-        "halfHourSuffix":"",
-        "halfHourPrefix":"",
-        "supportsHalfHour": false
-      },
-      {
-        "name": "IV. 2. Zona",
+        "name": "IV. Zona",
         "smsNumber": "700104",
         "comment": "",
         "halfHourSuffix":"",
@@ -67,9 +35,41 @@
         "supportsHalfHour": false
       },
       {
-        "name": "IV. 2. 'Paromlin'",
+        "name": "IV. Zona*",
+        "smsNumber": "700105",
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
+      },
+      {
+        "name": "Trg Stjepana R.",
+        "smsNumber": "700106",
+        "comment": "Vrijedi za Trg Stjepana Radića.",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
+      },
+      {
+        "name": "IV. 'Paromlin'",
         "smsNumber": "700107",
         "comment": "Vrijedi za Paromlin.",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
+      },
+      {
+        "name": "II. Zona**",
+        "smsNumber": "700108",
+        "comment": "",
+        "halfHourSuffix":"",
+        "halfHourPrefix":"",
+        "supportsHalfHour": false
+      },
+      {
+        "name": "Dubravkin put",
+        "smsNumber": "700109",
+        "comment": "Vrijedi za Dubravkin put.",
         "halfHourSuffix":"",
         "halfHourPrefix":"",
         "supportsHalfHour": false

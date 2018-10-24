@@ -42,6 +42,8 @@ public class CarActivity extends AppCompatActivity implements CarListAdapter.OnI
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         this.carRepository = new SharedPreferencesCarRepository(this);
@@ -56,6 +58,12 @@ public class CarActivity extends AppCompatActivity implements CarListAdapter.OnI
         this.rvCars.setLayoutManager(mLayoutManager);
         this.rvCars.setItemAnimator(new DefaultItemAnimator());
         this.rvCars.setAdapter(adapter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 
